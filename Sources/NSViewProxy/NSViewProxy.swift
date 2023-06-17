@@ -263,7 +263,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// The first ancestor of the proxied SwiftUI `View` whose type is of the given
         /// represented type.
         /// - Parameter type: The type against which to compare ancestor views.
-        static func ancestor(
+        public static func ancestor(
             representing type: TargetView.Type = NSView.self
         ) -> ViewRelationship {
             ViewRelationship(rawValue: (
@@ -276,7 +276,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// The first descendant of the proxied SwiftUI `View` whose type is of the given
         /// represented type.
         /// - Parameter type: The type against which to compare descendant views.
-        static func descendant(
+        public static func descendant(
             representing type: TargetView.Type = NSView.self
         ) -> ViewRelationship {
             ViewRelationship(rawValue: (
@@ -291,7 +291,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// - Parameters:
         ///   - relative: The target `NSView`'s relation to the proxied SwiftUI `View`.
         ///   - type: The type against which to compare the related views.
-        static func furthest(
+        public static func furthest(
             _ relative: Relative,
             representing type: TargetView.Type = NSView.self
         ) -> ViewRelationship {
@@ -307,7 +307,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// - Parameters:
         ///   - relative: The target `NSView`'s relation to the proxied SwiftUI `View`.
         ///   - type: The type against which to compare the related views.
-        static func closest(
+        public static func closest(
             _ relative: Relative,
             representing type: TargetView.Type = NSView.self
         ) -> ViewRelationship {
@@ -323,7 +323,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// The first ancestor of the proxied SwiftUI `View` whose string-represented type
         /// matches the given regular expression.
         /// - Parameter type: The regular expression against which to compare ancestor views.
-        static func ancestor(
+        public static func ancestor(
             like type: Regex<Substring>
         ) -> ViewRelationship where TargetView == NSView {
             ViewRelationship(rawValue: (
@@ -336,7 +336,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// The first descendant of the proxied SwiftUI `View` whose string-represented type
         /// matches the given regular expression.
         /// - Parameter type: The regular expression against which to compare descendant views.
-        static func descendant(
+        public static func descendant(
             like type: Regex<Substring>
         ) -> ViewRelationship where TargetView == NSView {
             ViewRelationship(rawValue: (
@@ -351,7 +351,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// - Parameters:
         ///   - relative: The target `NSView`'s relation to the proxied SwiftUI `View`.
         ///   - type: The regular expression against which to compare the related views.
-        static func furthest(
+        public static func furthest(
             _ relative: Relative,
             like type: Regex<Substring>
         ) -> ViewRelationship where TargetView == NSView {
@@ -367,7 +367,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// - Parameters:
         ///   - relative: The target `NSView`'s relation to the proxied SwiftUI `View`.
         ///   - type: The regular expression against which to compare the related views.
-        static func closest(
+        public static func closest(
             _ relative: Relative,
             like type: Regex<Substring>
         ) -> ViewRelationship where TargetView == NSView {
@@ -383,7 +383,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// The first ancestor of the proxied SwiftUI `View` whose instance passes conditions
         /// evaluated in the given callback.
         /// - Parameter condition: The callback used to evaluate each ancestor view.
-        static func ancestor(
+        public static func ancestor(
             passing condition: @escaping RelationshipCondition
         ) -> ViewRelationship where TargetView == NSView {
             ViewRelationship(rawValue: (
@@ -396,7 +396,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// The first descendant of the proxied SwiftUI `View` whose instance passes conditions
         /// evaluated in the given callback.
         /// - Parameter condition: The callback used to evaluate each ancestor view.
-        static func descendant(
+        public static func descendant(
             passing condition: @escaping RelationshipCondition
         ) -> ViewRelationship where TargetView == NSView {
             ViewRelationship(rawValue: (
@@ -411,7 +411,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// - Parameters:
         ///   - relative: The target `NSView`'s relation to the proxied SwiftUI `View`.
         ///   - condition: The callback used to evaluate each related view.
-        static func furthest(
+        public static func furthest(
             _ relative: Relative,
             passing condition: @escaping RelationshipCondition
         ) -> ViewRelationship where TargetView == NSView {
@@ -427,7 +427,7 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
         /// - Parameters:
         ///   - relative: The target `NSView`'s relation to the proxied SwiftUI `View`.
         ///   - condition: The callback used to evaluate each related view.
-        static func closest(
+        public static func closest(
             _ relative: Relative,
             passing condition: @escaping RelationshipCondition
         ) -> ViewRelationship where TargetView == NSView {
