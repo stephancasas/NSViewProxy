@@ -136,7 +136,14 @@ public extension NSViewProxyModifier.GlobalViewRelative {
 
 public extension NSViewProxyModifier.GlobalViewRelative {
     
-    /// The uppermost `NSView` in the view hierarchy in which the proxied SwiftUI `View` will draw.
+    /// The uppermost `NSView` in the view hierarchy of the `NSWindow` in which the proxied SwiftUI `View` will draw — encompassing every UI element which will draw.
+    static var themeFrame: NSViewProxyModifier<NSView>.GlobalViewRelative<NSView> {
+        NSViewProxyModifier<NSView>.GlobalViewRelative<NSView>(rawValue: (NSView.self, { view in
+            return view.window?.contentView?.superview;
+        }))
+    }
+    
+    /// The second-uppermost `NSView` in the view hierarchy in which the proxied SwiftUI `View` will draw.
     static var contentView: NSViewProxyModifier<NSView>.GlobalViewRelative<NSView> {
         NSViewProxyModifier<NSView>.GlobalViewRelative<NSView>(rawValue: (NSView.self, { view in
             return view.window?.contentView;
