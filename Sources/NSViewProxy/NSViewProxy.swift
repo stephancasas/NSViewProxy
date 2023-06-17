@@ -258,6 +258,24 @@ public struct NSViewProxyModifier<TargetView: NSView>: ViewModifier {
             case descendant;
         }
         
+        // MARK: - Lazy Relative Matching
+        
+        public static var ancestor: ViewRelationship {
+            .init(rawValue: (
+                .ancestor,
+                .closest,
+                { view in (view as? TargetView ?? nil) != nil }
+            ))
+        }
+        
+        public static var descendant: ViewRelationship {
+            .init(rawValue: (
+                .descendant,
+                .closest,
+                { view in (view as? TargetView ?? nil) != nil }
+            ))
+        }
+        
         // MARK: - Type-based Matching
         
         /// The first ancestor of the proxied SwiftUI `View` whose type is of the given
